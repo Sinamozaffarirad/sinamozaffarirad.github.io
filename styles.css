@@ -1,0 +1,34 @@
+table {
+    width: 100%;
+}
+@font-face {
+    font-family: "B Nazanin";
+    src: url("https://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.eot");
+    src: url("https://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.eot?#iefix") format("embedded-opentype"),
+        url("https://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.woff2") format("woff2"),
+        url("https://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.woff") format("woff"),
+        url("https://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.ttf") format("truetype"),
+        url("https://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.svg#B Nazanin") format("svg");
+}
+
+
+th, td {
+    font-family: B Nazanin;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #fafab5; /* Yellow */
+}
+
+tbody tr:nth-child(even) {
+    background-color: #e7e5e5; /* Light grey for even rows */
+}
+tbody td:nth-child(1) {
+    background-color: #fafab5; /* Light grey for even rows */
+}
+
+
+
