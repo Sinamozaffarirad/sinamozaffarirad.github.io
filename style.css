@@ -1,0 +1,234 @@
+
+html {
+    scroll-behavior: smooth;
+}
+
+@font-face {
+    font-family: "B Nazanin";
+    src: url("https://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.eot");
+    src: url("https://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.eot?#iefix") format("embedded-opentype"),
+        url("https://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.woff2") format("woff2"),
+        url("https://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.woff") format("woff"),
+        url("https://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.ttf") format("truetype"),
+        url("https://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.svg#B Nazanin") format("svg");
+}
+
+body {
+    font-family: B Nazanin , sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 20px;
+    direction: rtl; 
+    text-align: right;
+}
+
+a {
+    display: inline-block;
+    margin-bottom: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+a:hover {
+    background-color: #45a049;
+}
+
+h1 {
+    color: #333366;
+    margin-bottom: 0;
+}
+
+h2,h3 {
+    color: #09025d;
+    margin: 0 0 10px 0;
+}
+
+ol {
+    margin: 10px 0 20px 20px;
+    font-size: 21px;
+    font-weight: 550;
+
+}
+
+ul {
+    margin: 10px 0 20px 20px;
+    font-size: 21px;
+    font-weight: 550;
+    list-style-type: none; /* این خط را اضافه کنید تا bullet point های پیش فرض حذف شوند */
+}
+
+ul li::before {
+    content: "\2022";  /* این یک bullet point است */
+    font-weight:900;
+    color: #832ba5;    /* رنگ bullet point را به بنفش تغییر می‌دهد */
+    display: inline-block; /* نمایش به صورت inline */
+    width: 1em; /* فاصله مناسب از متن */
+    margin-left: 0em;  /* به جلو برده شده تا در مکان مناسب قرار گیرد */
+}
+
+li {
+    margin-bottom: 5px;
+    font-size: 21px;
+    font-weight: 550;
+}
+
+em {
+    color: #832ba5;
+    font-weight: 750;
+
+}
+
+strong {
+    color: #e74c3c;
+}
+
+p {
+    
+    margin: 15px 0;
+    line-height: 1.6;
+    text-indent: 30px;
+    color: #0e0c0c;
+    font-size: 21px;
+    font-weight: 550;
+}
+
+#english {
+    text-align: left;
+    direction: ltr;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.purple {
+    color: #832ba5;
+}
+/* در فایل style.css */
+
+.table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #e0e0e0;
+}
+
+.table-row {
+    display: flex;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.table-cell {
+    flex: 1;
+    padding: 8px;
+    text-align: center;
+    background-color: #f5f5f5;
+    font-size: 21px;
+    font-weight: 550;
+}
+
+.header .table-cell {
+    font-weight: bold;
+}
+
+.table-bar {
+    height: 30px;
+    margin: 5px;
+    background-color: green;
+}
+
+.gantt-chart {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.gantt-row {
+    display: table-row;
+}
+
+.gantt-header {
+    display: table-cell;
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 21px;
+    font-weight: 550;
+}
+
+.gantt-cell {
+    display: table-cell;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 21px;
+    font-weight: 550;
+}
+
+.text-cell {
+    display: table-cell;
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 21px;
+    font-weight: 550;
+}
+
+.gantt-row.header .gantt-cell {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.gantt-cell.task {
+    height: 30px;
+    margin: 5px;
+    background-color: #f8f8f8;
+}
+
+.gantt-cell.task:hover {
+    background-color: #d0d0d0;
+    cursor: pointer;
+    
+}
+.gantt-cell .progress {
+    height: 100%;
+}
+
+.gantt-cell {
+    display: table-cell;
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 21px;
+    font-weight: 550;
+}
+
+.gantt-row.header .gantt-cell {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.gantt-cell.task {
+    height: 30px;
+    margin: 5px;
+    background-color: #f8f8f8;
+}
+
+.gantt-cell.task:hover {
+    background-color: #d0d0d0;
+    cursor: pointer;
+    
+}
+.gantt-cell .progress {
+    height: 100%;
+}
+.gantt-cell, .table-cell {
+
+    padding-top: 15px;
+    padding-right: 0px;
+    padding-bottom: 15px;
+    padding-left: 0px;
+
+}
+
+
