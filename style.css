@@ -95,7 +95,8 @@ p {
     font-weight: 550;
 }
 
-#english {
+/* Use class .english to format left-aligned English text */
+.english {
     text-align: left;
     direction: ltr;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
