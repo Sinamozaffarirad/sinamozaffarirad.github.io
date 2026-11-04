@@ -17,6 +17,7 @@ dial ENERGY 1 / RHYTHM 2 / MOTION 1.
   the heading motif.
 - **Identity motif:** each section heading ends in a thin copper line with a small ring at the end, like a trace
   ending in a via.
+- **Photo:** supplied by Sina, cropped square and shown small so it identifies without taking focus from the content.
 - **Focal point:** the interests statement at the top of the reading column is the largest text in it.
 - **Projects:** the two co-design projects are shown as framed entries because they are closest to the M.Sc. field;
   everything else is a compact list. This gives the section a clear hierarchy instead of a grid of identical cards.
