@@ -1,73 +1,205 @@
-<!DOCTYPE html>
-<html lang="fa">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>پیشنهاده وبسایت املاک</title>
-    <style>
-    nav {
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin-bottom: 20px;
-        background-color: #f8f8f8;
-    }
-    nav a {
-        text-decoration: none;
-        color: #f8f8f8; 
-    }
-    nav .button {
-        display: inline-block; 
-        padding: 0 5px; 
-    }
-    nav .separator {
-        padding: 0 3px; 
-    }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sina Mozaffari Rad · Computer Systems Architecture, University of Tehran</title>
+<meta name="description" content="Sina Mozaffari Rad, M.Sc. student in Computer Systems Architecture at the University of Tehran. Education, experience and projects in hardware/software co-design, on-chip communication and embedded systems.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap">
+<link rel="stylesheet" href="style.css">
+<script>
+  /* Apply the saved theme before first paint so the page does not flash. */
+  try {
+    var t = localStorage.getItem('theme');
+    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+  } catch (e) {}
+</script>
 </head>
-
 <body>
-    <nav>
-    <p><strong>فهرست مطالب:</strong></p>
-    <a href="#section1" class="button">توسعه وب‌سایت املاک</a><span class="separator">|</span>
-    <a href="#section2" class="button">مقدمه</a><span class="separator">|</span>
-    <a href="#section3" class="button">اهداف</a><span class="separator">|</span>
-    <a href="#section4" class="button">قابلیت‌های کلیدی وب‌سایت</a><span class="separator">|</span>
-    <a href="#section5" class="button">جزئیات توسعه</a><span class="separator">|</span>
-    <a href="page2.html#section6" class="button">جزئیات فنی</a><span class="separator">|</span>
-    <a href="page2.html#section7" class="button">تکنولوژی‌های استفاده شده</a><span class="separator">|</span>
-    <a href="page2.html#section8" class="button">برگ‌های وب‌سایت</a><span class="separator">|</span>
-    <a href="page2.html#section9" class="button">برنامه‌ریزی زمانی</a><span class="separator">|</span>
-    <a href="page2.html#section10" class="button">تیم اجرایی</a><span class="separator">|</span>
-    <a href="page2.html#section11" class="button">بودجه‌بندی</a><span class="separator">|</span>
-    <a href="page3.html#section12" class="button">ارزیابی و موفقیت</a><span class="separator">|</span>
-    <a href="page3.html#section13" class="button">ریسک‌ها و چالش‌ها</a><span class="separator">|</span>
-    <a href="page3.html#section14" class="button">نتیجه‌گیری</a><span class="separator">|</span>
-    <a href="page3.html#section15" class="button">تایید شرایط و مفاد پیشنهادی</a>
-    </nav>
+<a class="skip" href="#main">Skip to content</a>
 
-    <h1 id="section1">عنوان پیشنهاده:</h1>
-    <h2>توسعه وب‌سایت املاک با استفاده از الگوریتم‌های یادگیری ماشین برای پیش‌بینی قیمت در بازار مسکن تهران </h2>       
-    <h2 id="section2">مقدمه:</h2>
-    <p>با توجه به رشد روزافزون بازار املاک و مستغلات در شهر تهران و نیاز مشتریان به دسترسی آسان به اطلاعات، پیاده‌سازی یک پلتفرم آنلاین که بتواند به صورت هوشمندانه و با استفاده از داده‌های موجود، اطلاعات دقیق و به روزی را در اختیار کاربران قرار دهد، ضروری به نظر می‌رسد. وب‌سایت ما با بهره‌گیری از الگوریتم‌های یادگیری ماشین و تکنولوژی‌های وب پیشرفته، این خدمات را فراهم می‌آورد.</p>
-    <h2 id="section3">اهداف:</h2>
-    <ul>
-        <li>ارائه یک پلتفرم هوشمند و یکپارچه برای جستجو، مقایسه و پیش‌بینی قیمت املاک در شهر تهران.</li>
-        <li>بهره‌برداری از الگوریتم‌های یادگیری ماشین و رگرسیون خطی جهت ارائه اطلاعات دقیق و به روز به کاربران.</li>
-        <li>فراهم کردن قابلیت‌های پیشرفته برای کاربران، از جمله جستجوی هوشمند، فیلتر کردن نتایج و ثبت آگهی با سهولت.</li>
-        <li>افزایش اطمینان کاربران به وب‌سایت با ارائه پیش‌بینی‌های دقیق مبتنی بر داده‌های بازار املاک تهران.</li>
-        <li>ایجاد یک محیط کاربرپسند و ارتباطی موثر بین مشتریان و تیم پشتیبانی.</li>
+<div class="layout">
+  <header class="card-id">
+    <div class="id-top">
+      <div class="portrait" aria-hidden="true">SM</div>
+      <button class="theme" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z" fill="currentColor"/></svg>
+      </button>
+    </div>
+
+    <h1>Sina Mozaffari Rad</h1>
+    <p class="role">M.Sc. student, Computer Systems Architecture<br>University of Tehran</p>
+    <p class="place">Tehran, Iran</p>
+
+    <ul class="contact">
+      <li><a href="mailto:sinamozaffarirad@ut.ac.ir">sinamozaffarirad@ut.ac.ir</a></li>
+      <li><a href="https://www.linkedin.com/in/sinamozaffarirad">LinkedIn</a></li>
+      <li><a href="https://github.com/Sinamozaffarirad">GitHub</a></li>
     </ul>
-    <h2 id="section4">قابلیت‌های کلیدی وب‌سایت:</h2>
-    <p><em>برگ پیش‌بینی قیمت:</em> استفاده از <em>رگرسیون خطی</em> و الگوریتم‌های <em>یادگیری ماشین نظارت شده</em> برای پیش‌بینی قیمت املاک بر اساس ویژگی‌هایی نظیر متراژ، تعداد اتاق، سن بنا و ... با توجه به داده‌های موجود در بازار.</p>
-    <p><em>برگ جستجوی ملک:</em> امکان جستجو و فیلتر کردن املاک بر اساس محدوده جغرافیایی، تعداد اتاق، قیمت و سایر مشخصات.</p>
 
-    <p><em>برگ ثبت آگهی:</em> ارسال درخواست‌های آگهی برای فروش یا اجاره املاک توسط کاربران و در صورت تأیید کارشناسان به لیست املاک قابل مشاهده توسط سایرین در برگ جستجو اضافه خواهند شد .</p>
-    <p><em>برگ تماس با ما:</em> فراهم آوردن اطلاعات تماس و فرم ارتباط با تیم پشتیبانی برای پرسش‌ها و پشتیبانی کاربران.</p>
-    <h2 id="section5"> جزئیات توسعه:</h2>
-    <p>با توجه به پیشنهاده ارائه شده، هدف اصلی از توسعه وب‌سایت املاک در شهر تهران، استفاده از تکنیک‌های پیشرفته الگوریتم‌های یادگیری ماشین به منظور پیش‌بینی قیمت مسکن می‌باشد. وب‌سایت طراحی شده، علاوه بر ارائه برگ‌های پیش‌بینی قیمت، قابلیت‌هایی نظیر جستجوی ملک با فیلترهای مختلف، ثبت آگهی فروش یا اجاره ملک، امکان تماس مستقیم با مسئولین وب‌سایت و قابلیت‌های پشتیبانی مشتری را در بر خواهد داشت. تکنولوژی‌های پیشرفته و به‌روزی برای قسمت‌های Frontend و Backend، پایگاه داده و الگوریتم‌های یادگیری ماشین انتخاب شده‌اند تا بهره‌وری و امنیت بالایی به کاربران ارائه دهد. برنامه‌ریزی زمانی به طور دقیق و جامع، شامل فازهای مختلفی نظیر تحلیل و طراحی، تهیه مستندات، اجرایی‌کردن الگوریتم‌ها، آزمون و راه‌اندازی می‌شود. بودجه‌بندی کامل و دقیق، با توجه به هر بخش و زیربخش از پروژه، بر اساس منابع موردنیاز و هزینه‌های احتمالی، تهیه و ارائه شده است. این پیشنهاده با تلاش و توجه به جزئیات، به صورت انفرادی و با مسئولیت کامل تهیه و اجرا می‌شود. همه موارد و جزئیات ارائه شده در این پیشنهاده، مرزها و چارچوب‌های مشخصی دارند و<strong> هرگونه تغییر یا افزودنی خارج از این مرزها و چارچوب‌ها مورد قبول نخواهد بود.</strong></p>
-    <p>این پروژه جامعه مخاطبش کشور جمهوری اسلامی ایران خواهد بود و به <em>زبان فارسی</em> ارائه خواهد شد.</p>
-    <a href="page2.html">صفحه بعدی</a>
-    
+    <nav aria-label="Sections">
+      <ol>
+        <li><a href="#interests">Interests</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#skills">Skills</a></li>
+      </ol>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <section id="interests" class="lead">
+      <h2>Interests</h2>
+      <p class="statement">I work where hardware and software meet: <em>computer architecture</em>, <em>on-chip communication</em>, hardware/software co-design and embedded systems.</p>
+      <p>I started my master's in Computer Systems Architecture at the University of Tehran in October 2026, after a bachelor's in Computer Engineering at the University of Kashan. The projects below are from my bachelor's. Each one has its code and a write-up on GitHub, including what did not work.</p>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <ol class="timeline">
+        <li>
+          <p class="when">2026 to present</p>
+          <div>
+            <h3>University of Tehran</h3>
+            <p>M.Sc., Computer Engineering and Science<br><span class="muted">Computer Systems Architecture · College of Engineering</span></p>
+          </div>
+        </li>
+        <li>
+          <p class="when">2021 to 2026</p>
+          <div>
+            <h3>University of Kashan</h3>
+            <p>B.Sc., Computer Engineering</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <article class="job">
+        <div class="job-head">
+          <h3>Data Analyst Intern</h3>
+          <p class="when">Jun to Aug 2024</p>
+        </div>
+        <p class="muted">Diginext.ir · Technology and Innovation team · Tehran, on-site</p>
+        <p>Worked with structured data and machine learning: predicted the chance of stroke from a Kaggle health dataset, cleaned and visualised data in Power BI, managed it in SQL Server, and built small neural networks for classification.</p>
+      </article>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+
+      <h3 class="group">Architecture, co-design and embedded</h3>
+
+      <article class="feature">
+        <h4><a href="https://github.com/Sinamozaffarirad/application-mapping-petri-nets">Application mapping on a shared bus vs a 4×4 mesh NoC</a></h4>
+        <p class="tags">Timed Petri nets · MATLAB · Hardware/Software Co-Design course</p>
+        <p>One application mapped onto 16 processing elements and modelled on both interconnects, adding communication delay and then PE and link contention. With delay only, the NoC finished first (33 vs 35 time units). With contention, my mapping on the NoC was slower than the bus (37 vs 35), because XY routes shared links.</p>
+      </article>
+
+      <article class="feature">
+        <h4><a href="https://github.com/Sinamozaffarirad/fft8-hardware-software-codesign">FFT8: static vs dynamic dataflow scheduling</a></h4>
+        <p class="tags">C++ · dataflow · Hardware/Software Co-Design course</p>
+        <p>An 8-point radix-2 FFT built as four dataflow actors, run with a static schedule, a FIFO-driven single-thread scheduler and one thread per actor. All three give the same verified output.</p>
+      </article>
+
+      <ul class="plain-list">
+        <li>
+          <a href="https://github.com/Sinamozaffarirad/IoT-Air-Quality-Monitoring">Indoor air quality monitor</a>
+          <span>ESP8266 with five sensors on one I²C bus, BME280-referenced temperature compensation for the BME680 and ENS160, change-based MQTT, Node-RED and a Streamlit dashboard. IoT course final project.</span>
+        </li>
+        <li>
+          <a href="https://github.com/Sinamozaffarirad/atmega32-laser-engraver">ATmega32 two-axis laser engraver</a>
+          <span>Bare-metal C on an 8-bit AVR. Bresenham lines and midpoint circles driven as stepper-motor steps, keypad and GLCD interface, Proteus simulation. Microprocessors course.</span>
+        </li>
+        <li>
+          <a href="https://github.com/Sinamozaffarirad/synchronous-traffic-controller-vhdl">Traffic light controller in VHDL</a>
+          <span>FSM with a pedestrian request, in VHDL and LogicWorks, kept with a list of its known bugs and how to fix them.</span>
+        </li>
+      </ul>
+
+      <h3 class="group">Signal processing, vision and language</h3>
+      <ul class="plain-list">
+        <li>
+          <a href="https://github.com/Sinamozaffarirad/Persian-Speech-Recognition-DTW">Persian speech recognition with MFCC and DTW</a>
+          <span>Team project. Isolated-word recognition and keyword spotting in continuous speech (F1 0.78), DTW written from scratch. NLP course final project.</span>
+        </li>
+        <li>
+          <a href="https://github.com/Sinamozaffarirad/Ballot-Vote-Counter-OpenCV">Paper ballot vote counter</a>
+          <span>OpenCV pipeline with skew correction, checkbox and tick detection, and perceptual-hash duplicate rejection.</span>
+        </li>
+        <li>
+          <a href="https://github.com/Sinamozaffarirad/NLP-Course-Assignments">NLP course assignments</a>
+          <span>N-gram language models, Naive Bayes and Skip-gram written from scratch, partly on Persian text.</span>
+        </li>
+        <li>
+          <a href="https://github.com/Sinamozaffarirad/Digital-Image-Processing-MATLAB">Digital image processing in MATLAB</a>
+          <span>Filtering, restoration, Fourier analysis and morphology, chapter by chapter.</span>
+        </li>
+      </ul>
+
+      <h3 class="group">Search and constraint satisfaction</h3>
+      <ul class="plain-list">
+        <li>
+          <a href="https://github.com/Sinamozaffarirad/sudoku-csp-solver">Sudoku as a CSP</a>
+          <span>Backtracking, MRV, degree heuristic and AC-3, compared by states visited and by time.</span>
+        </li>
+        <li>
+          <a href="https://github.com/Sinamozaffarirad/8-puzzle-solver">8-puzzle solver</a>
+          <span>BFS, IDS and A* on a 31-move board, with a solvability check.</span>
+        </li>
+        <li>
+          <a href="https://github.com/Sinamozaffarirad/flow-puzzle-solver">Flow puzzle solver</a>
+          <span>A* path per colour with backtracking over the colour order.</span>
+        </li>
+        <li>
+          <a href="https://github.com/Sinamozaffarirad/tic-tac-toe-minimax">Tic-Tac-Toe with minimax</a>
+          <span>Minimax with alpha-beta pruning, checked against every human strategy.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="certifications">
+      <h2>Certifications</h2>
+      <table class="certs">
+        <caption class="visually-hidden">Certifications with issuer and date</caption>
+        <thead><tr><th scope="col">Course</th><th scope="col">Issuer</th><th scope="col">Issued</th></tr></thead>
+        <tbody>
+          <tr><td>Task-Oriented Course in Data Analysis with Python</td><td>Quera</td><td>Dec 2024</td></tr>
+          <tr><td>Neural Networks and Deep Learning</td><td>DeepLearning.AI</td><td>Aug 2024</td></tr>
+          <tr><td>Supervised Machine Learning: Regression and Classification</td><td>DeepLearning.AI</td><td>Jul 2024</td></tr>
+          <tr><td>Task-Oriented Course in Power BI</td><td>Quera</td><td>Jul 2024</td></tr>
+          <tr><td>Microsoft SQL Server 2022 Essential Training</td><td>LinkedIn Learning</td><td>Jul 2024</td></tr>
+          <tr><td>Introduction to HTML5</td><td>Coursera</td><td>Oct 2023</td></tr>
+          <tr><td>8th Winter Seminar Series (WSS)</td><td>Sharif University of Technology</td><td>Apr 2023</td></tr>
+          <tr><td>Learning Windows Terminal</td><td>LinkedIn Learning</td><td>Jul 2022</td></tr>
+          <tr><td>Python for Non-Programmers</td><td>LinkedIn Learning</td><td>Jul 2022</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="skills" class="skills">
+      <h2>Skills</h2>
+      <dl>
+        <div><dt>Hardware and embedded</dt><dd>VHDL, C for AVR (CodeVisionAVR), ESP8266 (Arduino), I²C, Proteus, LogicWorks, hardware/software co-design, IoT, MQTT, Node-RED</dd></div>
+        <div><dt>Programming</dt><dd>C++, Python, MATLAB, Java, object-oriented programming, SQL</dd></div>
+        <div><dt>Data and ML</dt><dd>NumPy, pandas, scikit-learn, OpenCV, librosa, neural networks, data mining, Power BI, SQL Server</dd></div>
+        <div><dt>Languages</dt><dd>Persian (native), English (professional working proficiency)</dd></div>
+      </dl>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <p>Sina Mozaffari Rad · <a href="mailto:sinamozaffarirad@ut.ac.ir">sinamozaffarirad@ut.ac.ir</a></p>
+</footer>
+
+<script src="theme.js" defer></script>
 </body>
 </html>

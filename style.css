@@ -1,236 +1,254 @@
+/* Design decisions and their reasons are written down in DESIGN.md. */
 
-html {
-    scroll-behavior: smooth;
+:root {
+  --paper: #f6f4ef;
+  --surface: #fdfcf9;
+  --ink: #1c1d21;
+  --muted: #55565c;
+  --line: #d9d5cb;
+  --accent: #9c4521;      /* copper, the colour of PCB traces */
+  --accent-soft: #f0e2d8;
+  --focus: #1d4ed8;
+  --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
 }
 
-@font-face {
-    font-family: "B Nazanin";
-    src: url("https://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.eot");
-    src: url("https://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.eot?#iefix") format("embedded-opentype"),
-        url("https://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.woff2") format("woff2"),
-        url("https://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.woff") format("woff"),
-        url("https://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.ttf") format("truetype"),
-        url("https://db.onlinewebfonts.com/t/3671adca6f650c92b83f906e49656986.svg#B Nazanin") format("svg");
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #16171a;
+    --surface: #1d1f23;
+    --ink: #ecebe7;
+    --muted: #a9a8a3;
+    --line: #34363c;
+    --accent: #e08a5f;
+    --accent-soft: #33241c;
+    --focus: #8ab4ff;
+    color-scheme: dark;
+  }
 }
+:root[data-theme="dark"] {
+  --paper: #16171a;
+  --surface: #1d1f23;
+  --ink: #ecebe7;
+  --muted: #a9a8a3;
+  --line: #34363c;
+  --accent: #e08a5f;
+  --accent-soft: #33241c;
+  --focus: #8ab4ff;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 
 body {
-    font-family: B Nazanin , sans-serif;
-    background-color: #f8f8f8;
-    margin: 0;
-    padding: 20px;
-    direction: rtl; 
-    text-align: right;
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1.0625rem/1.65 var(--sans);
+  overflow-wrap: break-word;
 }
 
-a {
-    display: inline-block;
-    margin-bottom: 20px;
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
+a { color: var(--ink); text-decoration-color: var(--accent); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+a:hover { color: var(--accent); }
+a:active { color: var(--ink); text-decoration-thickness: 3px; }
+a, button { cursor: pointer; }
+button:disabled { cursor: not-allowed; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 2px; }
+
+.skip {
+  position: absolute; left: 1rem; top: -4rem;
+  background: var(--ink); color: var(--paper);
+  padding: .6rem 1rem; z-index: 10;
+}
+.skip:focus { top: 1rem; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap;
 }
 
-a:hover {
-    background-color: #45a049;
+/* ---------- layout: identity column + reading column ---------- */
+
+.layout {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 2rem;
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 4.5rem;
 }
+
+.card-id { position: sticky; top: 3.5rem; align-self: start; }
+
+.id-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem; }
+
+.portrait {
+  width: 96px; height: 96px;
+  border-radius: 6px;
+  display: grid; place-items: center;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font: 600 2rem/1 var(--serif);
+  letter-spacing: .02em;
+  object-fit: cover;
+}
+
+.theme {
+  width: 44px; height: 44px;
+  display: grid; place-items: center;
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+.theme:hover { color: var(--accent); border-color: var(--accent); }
+.theme:active { background: var(--accent-soft); }
 
 h1 {
-    color: #333366;
-    margin-bottom: 0;
+  font: 600 2rem/1.15 var(--serif);
+  margin: 0 0 .6rem;
+  letter-spacing: -.01em;
+}
+.role { margin: 0 0 .35rem; font-weight: 500; }
+.place { margin: 0 0 1.5rem; color: var(--muted); font-size: .95rem; }
+
+.contact { list-style: none; margin: 0 0 2rem; padding: 0; font-size: .95rem; }
+.contact li + li { margin-top: .35rem; }
+.contact a { display: inline-block; padding: .2rem 0; }
+
+nav ol { list-style: none; margin: 0; padding: 1.25rem 0 0; border-top: 1px solid var(--line); counter-reset: s; }
+nav li { counter-increment: s; }
+nav a {
+  display: flex; gap: .75rem; align-items: baseline;
+  min-height: 44px; padding: .55rem 0;
+  text-decoration: none; color: var(--muted);
+}
+nav a::before { content: counter(s, decimal-leading-zero); font-size: .8rem; color: var(--accent); font-variant-numeric: tabular-nums; }
+nav a:hover { color: var(--ink); }
+
+main { max-width: 680px; }
+
+/* ---------- section headings: the copper trace motif ---------- */
+
+section { margin-bottom: 4.5rem; scroll-margin-top: 2rem; }
+
+h2 {
+  display: flex; align-items: center; gap: .9rem;
+  font: 600 1.45rem/1.2 var(--serif);
+  margin: 0 0 1.75rem;
+}
+/* A thin copper trace that ends in a via (a small ring), like a PCB track dropping to another layer. */
+h2::after {
+  content: "";
+  flex: 1;
+  height: 10px;
+  background:
+    radial-gradient(circle at calc(100% - 5px) 50%, transparent 2.2px, var(--accent) 2.7px, var(--accent) 4.2px, transparent 4.7px),
+    linear-gradient(var(--accent), var(--accent)) left center / calc(100% - 9px) 1.5px no-repeat;
 }
 
-h2,h3 {
-    color: #09025d;
-    margin: 0 0 10px 0;
+h3 { font: 600 1.15rem/1.35 var(--serif); margin: 0; }
+h4 { font: 600 1.1rem/1.4 var(--serif); margin: 0 0 .3rem; }
+
+p { margin: 0 0 1rem; }
+.muted { color: var(--muted); }
+
+/* ---------- interests: the one focal statement ---------- */
+
+.lead .statement {
+  font: 500 1.6rem/1.4 var(--serif);
+  letter-spacing: -.005em;
+  margin-bottom: 1.5rem;
+}
+.lead .statement em { font-style: normal; color: var(--accent); }
+
+/* ---------- education timeline ---------- */
+
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline li {
+  display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 1.5rem;
+  padding: 1.1rem 0; border-top: 1px solid var(--line);
+}
+.timeline li:last-child { border-bottom: 1px solid var(--line); }
+.timeline p { margin: .25rem 0 0; }
+.when { color: var(--muted); font-size: .92rem; font-variant-numeric: tabular-nums; margin: .15rem 0 0; }
+
+/* ---------- experience ---------- */
+
+.job-head { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; align-items: baseline; }
+.job .muted { margin: .3rem 0 .9rem; font-size: .95rem; }
+
+/* ---------- projects ---------- */
+
+.group {
+  font: 500 .95rem/1.4 var(--sans);
+  color: var(--muted);
+  margin: 2.5rem 0 1rem;
+}
+.group:first-of-type { margin-top: 0; }
+
+/* The two co-design projects get more room because they are closest to the M.Sc. field. */
+.feature {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 1.4rem 1.5rem .5rem;
+  margin-bottom: 1rem;
+}
+.feature h4 a { text-decoration-thickness: 1.5px; }
+.tags { color: var(--muted); font-size: .9rem; margin-bottom: .75rem; }
+
+.plain-list { list-style: none; margin: 1.5rem 0 0; padding: 0; }
+.plain-list li { padding: .9rem 0; border-top: 1px solid var(--line); }
+.plain-list li:last-child { border-bottom: 1px solid var(--line); }
+.plain-list a { font-weight: 600; display: inline-block; margin-bottom: .2rem; }
+.plain-list span { display: block; color: var(--muted); font-size: .97rem; }
+
+/* ---------- certifications ---------- */
+
+.certs { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.certs th { text-align: left; font-weight: 500; color: var(--muted); padding: 0 .75rem .6rem 0; border-bottom: 1px solid var(--ink); }
+.certs td { padding: .7rem .75rem .7rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+.certs td:last-child, .certs th:last-child { white-space: nowrap; padding-right: 0; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* ---------- skills ---------- */
+
+.skills dl { margin: 0; }
+.skills dl > div { display: grid; grid-template-columns: 11rem minmax(0, 1fr); gap: 1.5rem; padding: .9rem 0; border-top: 1px solid var(--line); }
+.skills dl > div:last-child { border-bottom: 1px solid var(--line); }
+.skills dt { font-weight: 600; }
+.skills dd { margin: 0; color: var(--muted); }
+
+footer {
+  max-width: 1120px; margin: 0 auto; padding: 2rem 2rem 3rem;
+  color: var(--muted); font-size: .9rem;
+}
+footer p { margin: 0; }
+
+/* ---------- small screens ---------- */
+
+@media (max-width: 860px) {
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 2.5rem; padding: 2rem 16px 1rem; }
+  .card-id { position: static; }
+  nav ol { display: flex; flex-wrap: wrap; gap: 0 1.25rem; }
+  main { max-width: none; }
+  footer { padding: 1.5rem 16px 2.5rem; }
 }
 
-ol {
-    margin: 10px 0 20px 20px;
-    font-size: 21px;
-    font-weight: 550;
-
+@media (max-width: 560px) {
+  h1 { font-size: 1.75rem; }
+  .lead .statement { font-size: 1.3rem; }
+  .timeline li, .skills dl > div { grid-template-columns: minmax(0, 1fr); gap: .25rem; }
+  .feature { padding: 1.1rem 1rem .25rem; }
+  .certs thead { display: none; }
+  .certs tr { display: block; padding: .7rem 0; border-bottom: 1px solid var(--line); }
+  .certs td { display: block; border: 0; padding: 0; }
+  .certs td:first-child { color: var(--ink); font-weight: 500; }
+  .certs td + td { display: inline; color: var(--muted); }
+  .certs td:nth-child(2)::after { content: " · "; }
+  .certs td:last-child { white-space: normal; }
 }
-
-ul {
-    margin: 10px 0 20px 20px;
-    font-size: 21px;
-    font-weight: 550;
-    list-style-type: none; /* این خط را اضافه کنید تا bullet point های پیش فرض حذف شوند */
-}
-
-ul li::before {
-    content: "\2022";  /* این یک bullet point است */
-    font-weight:900;
-    color: #832ba5;    /* رنگ bullet point را به بنفش تغییر می‌دهد */
-    display: inline-block; /* نمایش به صورت inline */
-    width: 1em; /* فاصله مناسب از متن */
-    margin-left: 0em;  /* به جلو برده شده تا در مکان مناسب قرار گیرد */
-}
-
-li {
-    margin-bottom: 5px;
-    font-size: 21px;
-    font-weight: 550;
-}
-
-em {
-    color: #832ba5;
-    font-weight: 750;
-
-}
-
-strong {
-    color: #e74c3c;
-}
-
-p {
-    
-    margin: 15px 0;
-    line-height: 1.6;
-    text-indent: 30px;
-    color: #0e0c0c;
-    font-size: 21px;
-    font-weight: 550;
-}
-
-/* Use class .english to format left-aligned English text */
-.english {
-    text-align: left;
-    direction: ltr;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-
-}
-
-.purple {
-    color: #832ba5;
-}
-/* در فایل style.css */
-
-.table {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    border: 1px solid #e0e0e0;
-}
-
-.table-row {
-    display: flex;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.table-cell {
-    flex: 1;
-    padding: 8px;
-    text-align: center;
-    background-color: #f5f5f5;
-    font-size: 21px;
-    font-weight: 550;
-}
-
-.header .table-cell {
-    font-weight: bold;
-}
-
-.table-bar {
-    height: 30px;
-    margin: 5px;
-    background-color: green;
-}
-
-.gantt-chart {
-    display: table;
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.gantt-row {
-    display: table-row;
-}
-
-.gantt-header {
-    display: table-cell;
-    padding: 8px;
-    border: 1px solid #ddd;
-    text-align: center;
-    font-size: 21px;
-    font-weight: 550;
-}
-
-.gantt-cell {
-    display: table-cell;
-    border: 1px solid #ddd;
-    text-align: center;
-    font-size: 21px;
-    font-weight: 550;
-}
-
-.text-cell {
-    display: table-cell;
-    padding: 8px;
-    border: 1px solid #ddd;
-    text-align: center;
-    font-size: 21px;
-    font-weight: 550;
-}
-
-.gantt-row.header .gantt-cell {
-    background-color: #f2f2f2;
-    font-weight: bold;
-}
-
-.gantt-cell.task {
-    height: 30px;
-    margin: 5px;
-    background-color: #f8f8f8;
-}
-
-.gantt-cell.task:hover {
-    background-color: #d0d0d0;
-    cursor: pointer;
-    
-}
-.gantt-cell .progress {
-    height: 100%;
-}
-
-.gantt-cell {
-    display: table-cell;
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: center;
-    font-size: 21px;
-    font-weight: 550;
-}
-
-.gantt-row.header .gantt-cell {
-    background-color: #f2f2f2;
-    font-weight: bold;
-}
-
-.gantt-cell.task {
-    height: 30px;
-    margin: 5px;
-    background-color: #f8f8f8;
-}
-
-.gantt-cell.task:hover {
-    background-color: #d0d0d0;
-    cursor: pointer;
-    
-}
-.gantt-cell .progress {
-    height: 100%;
-}
-.gantt-cell, .table-cell {
-
-    padding-top: 15px;
-    padding-right: 0px;
-    padding-bottom: 15px;
-    padding-left: 0px;
-
-}
-
-
-
