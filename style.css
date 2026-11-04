@@ -117,8 +117,7 @@ h1 {
 .place { margin: 0 0 1.5rem; color: var(--muted); font-size: .95rem; }
 
 .contact { list-style: none; margin: 0 0 2rem; padding: 0; font-size: .95rem; }
-.contact li + li { margin-top: .35rem; }
-.contact a { display: inline-block; padding: .2rem 0; }
+.contact a, footer a { display: inline-flex; align-items: center; min-height: 44px; }
 
 nav ol { list-style: none; margin: 0; padding: 1.25rem 0 0; border-top: 1px solid var(--line); counter-reset: s; }
 nav li { counter-increment: s; }
@@ -203,9 +202,9 @@ p { margin: 0 0 1rem; }
 .tags { color: var(--muted); font-size: .9rem; margin-bottom: .75rem; }
 
 .plain-list { list-style: none; margin: 1.5rem 0 0; padding: 0; }
-.plain-list li { padding: .9rem 0; border-top: 1px solid var(--line); }
+.plain-list li { padding: .5rem 0 .9rem; border-top: 1px solid var(--line); }
 .plain-list li:last-child { border-bottom: 1px solid var(--line); }
-.plain-list a { font-weight: 600; display: inline-block; margin-bottom: .2rem; }
+.plain-list a { font-weight: 600; display: inline-flex; align-items: center; min-height: 44px; }
 .plain-list span { display: block; color: var(--muted); font-size: .97rem; }
 
 /* ---------- certifications ---------- */
