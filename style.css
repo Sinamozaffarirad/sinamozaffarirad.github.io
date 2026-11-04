@@ -210,10 +210,16 @@ p { margin: 0 0 1rem; }
 .feature h4 a { text-decoration-thickness: 1.5px; }
 .tags { color: var(--muted); font-size: .9rem; margin-bottom: .75rem; }
 
-.plain-list { list-style: none; margin: 1.5rem 0 0; padding: 0; }
-.plain-list li { padding: .5rem 0 .9rem; border-top: 1px solid var(--line); }
-.plain-list li:last-child { border-bottom: 1px solid var(--line); }
-.plain-list a { font-weight: 600; display: inline-flex; align-items: center; min-height: 44px; }
+/* Every project sits in the same framed box, so the list reads as one consistent set. */
+.plain-list { list-style: none; margin: 0; padding: 0; }
+.plain-list li {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: .6rem 1.5rem 1.1rem;
+  margin-bottom: 1rem;
+}
+.plain-list a { font: 600 1.1rem/1.4 var(--serif); display: inline-flex; align-items: center; min-height: 44px; }
 .plain-list span { display: block; color: var(--muted); font-size: .97rem; }
 
 /* ---------- certifications ---------- */
@@ -252,6 +258,7 @@ footer p { margin: 0; }
   .lead .statement { font-size: 1.3rem; }
   .timeline li, .skills dl > div { grid-template-columns: minmax(0, 1fr); gap: .25rem; }
   .feature { padding: 1.1rem 1rem .25rem; }
+  .plain-list li { padding: .5rem 1rem 1rem; }
   .certs thead { display: none; }
   .certs tr { display: block; padding: .7rem 0; border-bottom: 1px solid var(--line); }
   .certs td { display: block; border: 0; padding: 0; }

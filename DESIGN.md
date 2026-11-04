@@ -19,10 +19,10 @@ dial ENERGY 1 / RHYTHM 2 / MOTION 1.
   ending in a via.
 - **Photo:** supplied by Sina, cropped square and shown small so it identifies without taking focus from the content.
 - **Focal point:** the interests statement at the top of the reading column is the largest text in it.
-- **Projects:** the two co-design projects are shown as framed entries because they are closest to the M.Sc. field;
-  everything else is a compact list. This gives the section a clear hierarchy instead of a grid of identical cards.
+- **Projects:** every project is a framed entry (Sina's choice, for a consistent look). Hierarchy comes from order and
+  grouping: the two co-design projects come first and have a tag line and a longer description.
 - **Rhythm:** each section uses the form its content needs: a statement, a dated timeline, a single job entry,
-  framed entries plus lists, a table for certifications, and a definition list for skills.
+  framed project entries, a table for certifications, and a definition list for skills.
 - **Motion:** none besides hover and focus states and smooth scrolling for the section links (turned off under
   reduced motion). Nothing on this page needs to move.
 - **Theme:** follows the system setting, with a toggle that is remembered. Both themes meet WCAG AA contrast.
